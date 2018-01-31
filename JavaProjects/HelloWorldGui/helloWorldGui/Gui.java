@@ -5,6 +5,7 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.awt.Color;
 
 /*This program will create a GUI with a a Label and a button. 
  * When the user clicks the button a message ("Hello World") will appear 
@@ -17,10 +18,13 @@ public class Gui extends JFrame implements ActionListener{
 	
 	public Gui() {
 		
+		//Setting the layout to null meaning i'm using absolute position
+		//I understand this is not recommended as it does not take into account resizing of the window
 		panel.setLayout(null);
 		
 		messageBoard.setBounds(0, 0, 394, 153);
 		messageBoard.setFont(new Font("Tahoma", Font.BOLD, 40));
+		messageBoard.setHorizontalAlignment(SwingConstants.CENTER);
 		panel.add(messageBoard);
 		
 		msgBoardbtn.setBounds(93, 185, 188, 50);
@@ -29,6 +33,7 @@ public class Gui extends JFrame implements ActionListener{
 		msgBoardbtn.addActionListener(this);
 		panel.add(msgBoardbtn);
 		
+		//Using the super keyword to refer to the super class JFrame 
 		super.add(panel);
 		
 		super.setTitle("Hello World");
@@ -36,17 +41,15 @@ public class Gui extends JFrame implements ActionListener{
 		super.setSize(400, 300);
 		super.setResizable(false);
 		super.setLocationRelativeTo(null);
-		super.setVisible(true);
-
-		
+		super.setVisible(true);	
 	}
 		
 
-	
-	
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void actionPerformed(ActionEvent event) {
+
+		if(event.getSource() ==  msgBoardbtn) {
+			messageBoard.setText("HELLO WORLD");
+		}
 	}
 
 	
