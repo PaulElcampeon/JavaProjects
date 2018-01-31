@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="ConversationGui1"/>
 	<classpathentry kind="src" path="Statistics"/>
 	<classpathentry kind="src" path="LowestCommonMultiple"/>
+	<classpathentry kind="src" path="CircleArea&amp;Circumference"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
