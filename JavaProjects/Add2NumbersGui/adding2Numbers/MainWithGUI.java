@@ -1,4 +1,5 @@
 package adding2Numbers;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,11 +26,26 @@ public class MainWithGUI{
 		
 		panel.setLayout(new GridLayout(3,2));
 		
+		num1field.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		num1field.setHorizontalAlignment(JTextField.CENTER);
 		panel.add(num1field);
+
+		num2field.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		num2field.setHorizontalAlignment(JTextField.CENTER);
 		panel.add(num2field);
+		
+		addbtn.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel.add(addbtn);
+		
+		clear.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		panel.add(clear);
+		
+		calculations.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		calculations.setHorizontalAlignment(JTextField.CENTER);
 		panel.add(calculations);
+		
+		ansLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		ansLabel.setHorizontalAlignment(JTextField.CENTER);
 		panel.add(ansLabel);
 
 		frame.add(panel);
@@ -37,8 +53,9 @@ public class MainWithGUI{
 		frame.setTitle("Adding 2 numbers");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
-		frame.setSize(500, 300);
+		frame.setSize(700, 300);
 		frame.setResizable(true);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
 		ActionTaken actionTaken = new ActionTaken();
@@ -52,11 +69,16 @@ public class MainWithGUI{
 		public void actionPerformed(ActionEvent event) {
 		
 			if(event.getSource() == addbtn) {
+				try {
 				num1 = Double.parseDouble(num1field.getText());
 				num2 = Double.parseDouble(num2field.getText());
 				answer = num1 + num2;
 				calculations.setText(num1+" + "+num2+" = ");
-				ansLabel.setText(": "+answer);
+				ansLabel.setText(""+answer);
+				}
+				catch(Exception e) {
+					JOptionPane.showMessageDialog(frame, "Theres seem to be a problem with the numbers you have entered please correct this");
+				}
 			}
 			
 			if(event.getSource() == clear) {
