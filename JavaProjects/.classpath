@@ -7,5 +7,6 @@
 	<classpathentry kind="src" path="Add2NumbersGui"/>
 	<classpathentry kind="src" path="ConversationGui1"/>
 	<classpathentry kind="src" path="Statistics"/>
+	<classpathentry kind="src" path="LowestCommonMultiple"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
