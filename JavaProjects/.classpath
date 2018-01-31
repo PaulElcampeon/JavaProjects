@@ -13,5 +13,6 @@
 	<classpathentry kind="src" path="PlottingTheCircumference"/>
 	<classpathentry kind="src" path="FilledCirclePlot"/>
 	<classpathentry kind="src" path="NthTermQuadratic"/>
+	<classpathentry kind="src" path="parallelOrPerpendicular"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
