@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="HelloWorldGui"/>
 	<classpathentry kind="src" path="Add2NumbersGui"/>
 	<classpathentry kind="src" path="ConversationGui1"/>
+	<classpathentry kind="src" path="Statistics"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
