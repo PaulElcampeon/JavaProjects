@@ -41,6 +41,11 @@ public class MainWithGUI{
 		frame.setResizable(true);
 		frame.setVisible(true);
 		
+		ActionTaken actionTaken = new ActionTaken();
+		
+		addbtn.addActionListener(actionTaken);
+		clear.addActionListener(actionTaken);
+		
 	}
 	
 	public class ActionTaken implements ActionListener{
