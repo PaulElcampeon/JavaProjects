@@ -3,11 +3,14 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
 
 /*This programme allows user to input two numbers and on the click of a 
  * button the sum of the two numbers I will be displayed on a JLabel.*/
+
+//I would not usually set up my coding like this but i just wanted to show another way of 
+//writing the code in one main class
+
 public class MainWithGUI{
 	
 	JFrame frame = new JFrame();
@@ -24,6 +27,7 @@ public class MainWithGUI{
 	
 	public MainWithGUI() {
 		
+		//Creating a GridLayout on the panel
 		panel.setLayout(new GridLayout(3,2));
 		
 		num1field.setFont(new Font("Tahoma", Font.PLAIN, 30));
@@ -52,10 +56,9 @@ public class MainWithGUI{
 		
 		frame.setTitle("Adding 2 numbers");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.pack();
 		frame.setSize(700, 300);
 		frame.setResizable(true);
-		frame.setLocationRelativeTo(null);
+		frame.setLocationRelativeTo(null); //frame appears in middle of window
 		frame.setVisible(true);
 		
 		ActionTaken actionTaken = new ActionTaken();
