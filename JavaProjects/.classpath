@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="Statistics"/>
 	<classpathentry kind="src" path="LowestCommonMultiple"/>
 	<classpathentry kind="src" path="CircleArea&amp;Circumference"/>
+	<classpathentry kind="src" path="NthTerm"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
