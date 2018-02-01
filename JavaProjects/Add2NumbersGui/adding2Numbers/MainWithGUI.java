@@ -87,6 +87,8 @@ public class MainWithGUI{
 			if(event.getSource() == clear) {
 				num1field.setText("");
 				num2field.setText("");
+				calculations.setText("Your calculations will show here");
+				ansLabel.setText("Your answer will appear here");
 			}
 		}
 	}
