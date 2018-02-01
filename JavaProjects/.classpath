@@ -15,5 +15,6 @@
 	<classpathentry kind="src" path="NthTermQuadratic"/>
 	<classpathentry kind="src" path="parallelOrPerpendicular"/>
 	<classpathentry kind="src" path="PearsonProductMomentCorrelationCoefficient"/>
+	<classpathentry kind="src" path="PrimeNumberApp"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
