@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class BookShop extends JFrame implements ActionListener{
 
@@ -54,6 +56,20 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	//Label to display cart total
 	private JLabel totalLabel = new JLabel("Total:");
+	
+	//Label Dimensions
+	private int labelwidth = 150;
+	private int labelheight = 100;
+	
+	//Label coordinates
+	private int row1y = 50;
+	private int row2y = 250;
+	private int row3y = 400;
+	private int column1x = 50;
+	private int column2x = 350;
+	private int column3x = 650;
+	private int column4x = 950;
+
 			
 	public BookShop() {
 		
@@ -62,18 +78,78 @@ public class BookShop extends JFrame implements ActionListener{
 		 * i have disabled window resizing function*/
 		panel.setLayout(null);
 		
-		MBD.setBounds(10, 10, 100, 50);
+		MBD.setVerticalAlignment(SwingConstants.TOP);
+		MBD.setHorizontalAlignment(SwingConstants.LEFT);
+		MBD.setBounds(column1x, row1y, labelwidth, labelheight);
 		MBD.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
+		TTPMS.setVerticalAlignment(SwingConstants.TOP);
+		TTPMS.setHorizontalAlignment(SwingConstants.LEFT);
+		TTPMS.setBounds(column2x, row1y, labelwidth, labelheight);
+		TTPMS.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
+		SLWW.setVerticalAlignment(SwingConstants.TOP);
+		SLWW.setHorizontalAlignment(SwingConstants.LEFT);
+		SLWW.setBounds(column3x, row1y, labelwidth, labelheight);
+		SLWW.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		TMB.setVerticalAlignment(SwingConstants.TOP);
+		TMB.setHorizontalAlignment(SwingConstants.LEFT);
+		TMB.setBounds(column4x, row1y, labelwidth, labelheight);
+		TMB.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		TTM.setVerticalAlignment(SwingConstants.TOP);
+		TTM.setHorizontalAlignment(SwingConstants.LEFT);
+		TTM.setBounds(column1x, row2y, labelwidth, labelheight);
+		TTM.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		TCoS.setVerticalAlignment(SwingConstants.TOP);
+		TCoS.setHorizontalAlignment(SwingConstants.LEFT);
+		TCoS.setBounds(column2x, row2y, labelwidth, labelheight);
+		TCoS.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		IToIF.setVerticalAlignment(SwingConstants.TOP);
+		IToIF.setHorizontalAlignment(SwingConstants.LEFT);
+		IToIF.setBounds(column3x, row2y, labelwidth, labelheight);
+		IToIF.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		CC.setVerticalAlignment(SwingConstants.TOP);
+		CC.setHorizontalAlignment(SwingConstants.LEFT);
+		CC.setBounds(column4x, row2y, labelwidth, labelheight);
+		CC.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		T2C.setVerticalAlignment(SwingConstants.TOP);
+		T2C.setHorizontalAlignment(SwingConstants.LEFT);
+		T2C.setBounds(column1x, row3y, labelwidth, labelheight);
+		T2C.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		GE.setVerticalAlignment(SwingConstants.TOP);
+		GE.setHorizontalAlignment(SwingConstants.LEFT);
+		GE.setBounds(column2x, row3y, labelwidth, labelheight);
+		GE.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
+		SM.setVerticalAlignment(SwingConstants.TOP);
+		SM.setHorizontalAlignment(SwingConstants.LEFT);
+		SM.setBounds(column3x, row3y, labelwidth, labelheight);
+		SM.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		panel.add(MBD);
+		panel.add(TTPMS);
+		panel.add(SLWW);
+		panel.add(TMB);
+		panel.add(TTM);
+		panel.add(TCoS);
+		panel.add(IToIF);
+		panel.add(CC);
+		panel.add(SM);
+		panel.add(T2C);
+		panel.add(GE);
 		
 		super.add(panel);
 		
 		super.setTitle("Book Store");
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.setSize(1000, 700);
+		super.setSize(1300, 700);
 		super.setResizable(false);
 		super.setLocationRelativeTo(null);
 		super.setVisible(true);
