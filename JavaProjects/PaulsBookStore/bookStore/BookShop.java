@@ -91,6 +91,20 @@ public class BookShop extends JFrame implements ActionListener{
 	private int removebtnColumn2x = 350;
 	private int removebtnColumn3x = 650;
 	private int removebtnColumn4x = 950;
+	
+	//Creating book objects for each book
+	BookMaker MBDbook = new BookMaker("Moby Dick", 1851, 15.20);
+	BookMaker TTPMSbook = new BookMaker("The Terrible Privacy of Maxwell Sim", 2010, 13.14);
+	BookMaker SLWWbook = new BookMaker("Still Life With Woodpecker", 1980, 11.05);
+	BookMaker SMbook = new BookMaker("Sleeping Murder", 1976, 10.24);
+	BookMaker TMBbook = new BookMaker("Three Men in a Boat", 1889, 12.87);
+	BookMaker TTMbook = new BookMaker("The Time Machine", 1895, 10.43);
+	BookMaker TCoSbook = new BookMaker("The Caves of Steel", 1954, 8.12);
+	BookMaker IToIFbook = new BookMaker("Idle Thoughts of an Idle Fellow", 1886, 7.32);
+	BookMaker CCbook = new BookMaker("A Christmas Carol", 1843, 4.23);
+	BookMaker T2Cbook = new BookMaker("A Tale of Two Cities", 1859, 6.32);
+	BookMaker GEbook = new BookMaker("Great Expectations", 1861, 13.21);
+
 			
 	public BookShop() {
 		
