@@ -1,7 +1,8 @@
 package bookStore;
 
 public class Main {
-
-	BookShop obj = new BookShop();
+	public static void main(String[] args) {
 	
+		BookShop obj = new BookShop();
+	}
 }
