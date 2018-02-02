@@ -251,6 +251,7 @@ public class BookShop extends JFrame implements ActionListener{
 		
 		ShopCart.addActionListener(this);
 		
+		//adding my panel to frame
 		super.add(panel);
 		
 		super.setTitle("Book Store");
