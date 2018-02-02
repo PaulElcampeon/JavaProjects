@@ -12,6 +12,9 @@ public class BookShop extends JFrame implements ActionListener{
 	//This variable is going to be used to add the total of the items in the shopping cart
 	private double total = 0;
 	
+	//Label to display cart total
+	private JLabel totalLabel = new JLabel("Total:");
+
 	private JPanel panel = new JPanel();
 	
 	//Label for each book
@@ -54,9 +57,6 @@ public class BookShop extends JFrame implements ActionListener{
 	//Button to see shopping cart 
 	private JButton ShopCart = new JButton("Shopping Cart");
 	
-	//Label to display cart total
-	private JLabel totalLabel = new JLabel("Total:");
-	
 	//Label Dimensions
 	private int labelwidth = 150;
 	private int labelheight = 100;
@@ -69,7 +69,28 @@ public class BookShop extends JFrame implements ActionListener{
 	private int column2x = 350;
 	private int column3x = 650;
 	private int column4x = 950;
-
+	
+	//Button Dimensions
+	private int btnWidth = 90;
+	private int btnHeight = 20;
+	
+	//Button coordinates for add and remove
+	private int addbtnRow1y = 150;
+	private int addbtnRow2y = 330;
+	private int addbtnRow3y = 470;
+	private int addbtnColumn1x = 50;
+	private int addbtnColumn2x = 350;
+	private int addbtnColumn3x = 650;
+	private int addbtnColumn4x = 950;
+	
+	//Button coordinates for remove
+	private int removebtnRow1y = 175;
+	private int removebtnRow2y = 355;
+	private int removebtnRow3y = 495;
+	private int removebtnColumn1x = 50;
+	private int removebtnColumn2x = 350;
+	private int removebtnColumn3x = 650;
+	private int removebtnColumn4x = 950;
 			
 	public BookShop() {
 		
@@ -145,11 +166,69 @@ public class BookShop extends JFrame implements ActionListener{
 		panel.add(T2C);
 		panel.add(GE);
 		
+		addMBD.setBounds(addbtnColumn1x, addbtnRow1y, btnWidth, btnHeight);
+		addTTPMS.setBounds(addbtnColumn2x, addbtnRow1y, btnWidth, btnHeight);
+		addSLWW.setBounds(addbtnColumn3x, addbtnRow1y, btnWidth, btnHeight);
+		addTMB.setBounds(addbtnColumn4x, addbtnRow1y, btnWidth, btnHeight);
+		addTTM.setBounds(addbtnColumn1x, addbtnRow2y, btnWidth, btnHeight);
+		addTCoS.setBounds(addbtnColumn2x, addbtnRow2y, btnWidth, btnHeight);
+		addIToIF.setBounds(addbtnColumn3x, addbtnRow2y, btnWidth, btnHeight);
+		addCC.setBounds(addbtnColumn4x, addbtnRow2y, btnWidth, btnHeight);
+		addSM.setBounds(addbtnColumn1x, addbtnRow3y, btnWidth, btnHeight);
+		addT2C.setBounds(addbtnColumn2x, addbtnRow3y, btnWidth, btnHeight);
+		addGE.setBounds(addbtnColumn3x, addbtnRow3y, btnWidth, btnHeight);
+		
+		panel.add(addMBD);
+		panel.add(addTTPMS);
+		panel.add(addSLWW);
+		panel.add(addTMB);
+		panel.add(addTTM);
+		panel.add(addTCoS);
+		panel.add(addIToIF);
+		panel.add(addCC);
+		panel.add(addSM);
+		panel.add(addT2C);
+		panel.add(addGE);
+		
+		removeMBD.setBounds(removebtnColumn1x, removebtnRow1y, btnWidth, btnHeight);
+		removeTTPMS.setBounds(removebtnColumn2x, removebtnRow1y, btnWidth, btnHeight);
+		removeSLWW.setBounds(removebtnColumn3x, removebtnRow1y, btnWidth, btnHeight);
+		removeTMB.setBounds(removebtnColumn4x, removebtnRow1y, btnWidth, btnHeight);
+		removeTTM.setBounds(removebtnColumn1x, removebtnRow2y, btnWidth, btnHeight);
+		removeTCoS.setBounds(removebtnColumn2x, removebtnRow2y, btnWidth, btnHeight);
+		removeIToIF.setBounds(removebtnColumn3x, removebtnRow2y, btnWidth, btnHeight);
+		removeCC.setBounds(removebtnColumn4x, removebtnRow2y, btnWidth, btnHeight);
+		removeSM.setBounds(removebtnColumn1x, removebtnRow3y, btnWidth, btnHeight);
+		removeT2C.setBounds(removebtnColumn2x, removebtnRow3y, btnWidth, btnHeight);
+		removeGE.setBounds(removebtnColumn3x, removebtnRow3y, btnWidth, btnHeight);
+		
+		panel.add(removeMBD);
+		panel.add(removeTTPMS);
+		panel.add(removeSLWW);
+		panel.add(removeTMB);
+		panel.add(removeTTM);
+		panel.add(removeTCoS);
+		panel.add(removeIToIF);
+		panel.add(removeCC);
+		panel.add(removeSM);
+		panel.add(removeT2C);
+		panel.add(removeGE);
+		
+		ShopCart.setBounds(910, 420, 200, 100);
+		ShopCart.setFont(new Font("Tahoma", Font.BOLD, 20));
+		
+		panel.add(ShopCart);
+	
+		totalLabel.setBounds(0, 580, 500, 100);
+		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		panel.add(totalLabel);
+		
 		super.add(panel);
 		
 		super.setTitle("Book Store");
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.setSize(1300, 700);
+		super.setSize(1200, 700);
 		super.setResizable(false);
 		super.setLocationRelativeTo(null);
 		super.setVisible(true);
