@@ -224,6 +224,33 @@ public class BookShop extends JFrame implements ActionListener{
 		
 		panel.add(totalLabel);
 		
+		//Action listeners
+		addMBD.addActionListener(this);
+		addTTPMS.addActionListener(this);
+		addSLWW.addActionListener(this);
+		addTMB.addActionListener(this);
+		addTTM.addActionListener(this);
+		addTCoS.addActionListener(this);
+		addIToIF.addActionListener(this);
+		addCC.addActionListener(this);
+		addSM.addActionListener(this);
+		addT2C.addActionListener(this);
+		addGE.addActionListener(this);
+		
+		removeMBD.addActionListener(this);
+		removeTTPMS.addActionListener(this);
+		removeSLWW.addActionListener(this);
+		removeTMB.addActionListener(this);
+		removeTTM.addActionListener(this);
+		removeTCoS.addActionListener(this);
+		removeIToIF.addActionListener(this);
+		removeCC.addActionListener(this);
+		removeSM.addActionListener(this);
+		removeT2C.addActionListener(this);
+		removeGE.addActionListener(this);
+		
+		ShopCart.addActionListener(this);
+		
 		super.add(panel);
 		
 		super.setTitle("Book Store");
