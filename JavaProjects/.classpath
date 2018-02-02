@@ -16,5 +16,7 @@
 	<classpathentry kind="src" path="parallelOrPerpendicular"/>
 	<classpathentry kind="src" path="PearsonProductMomentCorrelationCoefficient"/>
 	<classpathentry kind="src" path="PrimeNumberApp"/>
+	<classpathentry kind="src" path="Connect2MYSQL"/>
+	<classpathentry kind="lib" path="C:/Users/paulo/Desktop/Java Stuff/mysql-connector-java-5.1.24-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
