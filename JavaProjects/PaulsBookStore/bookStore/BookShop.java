@@ -425,44 +425,55 @@ public class BookShop extends JFrame implements ActionListener{
 			}
 				else if(shoppingcart.contains(book) == true) {
 					if(book.getYear() > 2000) {
-						if((total > 30) && ((total -= book.getPrice() * discount1) < 30)) {
-							total /= discount2;
-							total -= book.getPrice() * discount1;
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							shoppingcart.remove(book);
+						if(discount2counter > 0) {
+							if((total /= discount2) > 30) {
+								if(((total/=discount2) > 30) && ((total/=discount2 -= book.getPrice() * discount1) < 30)) {
+									total /= discount2;
+									total -= book.getPrice() * discount1;
+									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+									shoppingcart.remove(book);
+									discount2counter--;
+									}
+								else if(((total/=discount2) > 30) && ((total/=discount2 -= book.getPrice() * discount1) > 30)) {
+									total -= book.getPrice() * discount1;
+									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+									shoppingcart.remove(book);
+									}
 							}
-						else if((total > 30) && ((total -= book.getPrice() * discount1) > 30)) {
-							total -= book.getPrice() * discount1;
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							shoppingcart.remove(book);
-							}
-						else {
+						}
+						else if(discount2counter == 0){
 							total -= book.getPrice() * discount1;
 							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
 							shoppingcart.remove(book);
 							}
 						}
 					else if(book.getYear() < 2000) {
-						if((total > 30) && ((total -= book.getPrice()) < 30)) {
-							total /= discount2;
+						if(discount2counter > 0) {
+							if((total /= discount2) > 30) {
+								if(((total/= discount2) > 30) && ((total/=discount2 -= book.getPrice()) < 30)) {
+									total /= discount2;
+									total -= book.getPrice();
+									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+									shoppingcart.remove(book);
+									discount2counter--;
+									}
+								else if(((total/=discount2) > 30) && ((total/=discount2 -= book.getPrice()) > 30)) {
+									total -= book.getPrice();
+									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+									shoppingcart.remove(book);
+									}
+							}
+						}
+						else if(discount2counter == 0){
 							total -= book.getPrice();
 							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
 							shoppingcart.remove(book);
+								}
 							}
-						else if((total > 30) && ((total -= book.getPrice()) > 30)) {
-							total -= book.getPrice() * discount1;
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							shoppingcart.remove(book);
-							}
-						else {
-							total -= book.getPrice() * discount1;
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							shoppingcart.remove(book);
-							}
-					}
+						}
 				}
 	}
-}
+
 
 		
 		/*if(shoppingcart.isEmpty() == true) {
