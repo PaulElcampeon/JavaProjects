@@ -157,20 +157,20 @@ public class BookShop extends JFrame implements ActionListener{
 		CC.setBounds(column4x, row2y, labelwidth, labelheight);
 		CC.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
+		SM.setVerticalAlignment(SwingConstants.TOP);
+		SM.setHorizontalAlignment(SwingConstants.LEFT);
+		SM.setBounds(column1x, row3y, labelwidth, labelheight);
+		SM.setFont(new Font("Tahoma", Font.BOLD, 15));
+		
 		T2C.setVerticalAlignment(SwingConstants.TOP);
 		T2C.setHorizontalAlignment(SwingConstants.LEFT);
-		T2C.setBounds(column1x, row3y, labelwidth, labelheight);
+		T2C.setBounds(column2x, row3y, labelwidth, labelheight);
 		T2C.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		GE.setVerticalAlignment(SwingConstants.TOP);
 		GE.setHorizontalAlignment(SwingConstants.LEFT);
-		GE.setBounds(column2x, row3y, labelwidth, labelheight);
+		GE.setBounds(column3x, row3y, labelwidth, labelheight);
 		GE.setFont(new Font("Tahoma", Font.BOLD, 15));
-		
-		SM.setVerticalAlignment(SwingConstants.TOP);
-		SM.setHorizontalAlignment(SwingConstants.LEFT);
-		SM.setBounds(column3x, row3y, labelwidth, labelheight);
-		SM.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		panel.add(MBD);
 		panel.add(TTPMS);
@@ -393,7 +393,7 @@ public class BookShop extends JFrame implements ActionListener{
 				for(BookMaker x : shoppingcart) {
 					total+= x.getPrice();
 					}
-				totalLabel.setText("Total:" +total);
+				totalLabel.setText("Total:" +Math.round(total * 100.0) / 100.0);
 				}
 
 	/*This method checks if the shopping cart is empty, if it is it notifies the 
@@ -404,20 +404,18 @@ public class BookShop extends JFrame implements ActionListener{
 	public void removeBTN(BookMaker book, ArrayList<BookMaker> shoppingcart) {
 		if(shoppingcart.isEmpty() == true) {
 			JOptionPane.showMessageDialog(this, "Your Shopping Cart is Empty");
-		}else {
-			for(BookMaker x : shoppingcart) {
-				if(x.equals(book)) {
-					shoppingcart.remove(x);
-					break;
-					}else {
+		}else if(shoppingcart.isEmpty() == false){
+			if(shoppingcart.contains(book) == true) {
+					shoppingcart.remove(book);
+					total = 0;
+					for(BookMaker y : shoppingcart) {
+						total+= y.getPrice();
+						}
+					totalLabel.setText("Total:" +Math.round(total * 100.0) / 100.0);
+					}
+					else if(shoppingcart.contains(book) == false){
 						JOptionPane.showMessageDialog(this, book.getName()+" Is not in the shopping cart");
 						}
-				}
-			}
-		total = 0;
-		for(BookMaker y : shoppingcart) {
-			total+= y.getPrice();
-			}
-		totalLabel.setText("Total:" +total);
 		}
 	}
+}
