@@ -1,6 +1,6 @@
 package bookStore;
 
-public class BookMaker {
+public class BookMaker{
 
 	private String name;
 	private int year;
