@@ -52,9 +52,9 @@ public class BookShop extends JFrame implements ActionListener{
 	private int row2y = 250;
 	private int row3y = 400;
 	private int column1x = 50;
-	private int column2x = 350;
-	private int column3x = 650;
-	private int column4x = 950;
+	private int column2x = 300;
+	private int column3x = 550;
+	private int column4x = 800;
 	
 	//Button Dimensions
 	private int btnWidth = 90;
@@ -62,12 +62,12 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	//Button coordinates for adding items
 	private int addbtnRow1y = 190;
-	private int addbtnRow2y = 370;
+	private int addbtnRow2y = 330;
 	private int addbtnRow3y = 470;
-	private int addbtnColumn1x = 50;
-	private int addbtnColumn2x = 350;
-	private int addbtnColumn3x = 650;
-	private int addbtnColumn4x = 950;
+	private int addbtnColumn1x = column1x;
+	private int addbtnColumn2x = column2x;
+	private int addbtnColumn3x = column3x;
+	private int addbtnColumn4x = column4x;
 	
 	//Creating book objects for each book
 	
@@ -86,13 +86,16 @@ public class BookShop extends JFrame implements ActionListener{
 	private BookMaker GEbook = new BookMaker("Great Expectations", 1861, 13.21,"");
 	
 	//Cart Display
-    private JTextArea cartdisplay = new JTextArea("Cart Display", 20, 0);  
+    private JTextArea cartdisplay = new JTextArea("Cart Items", 20, 0);  
     private JScrollPane scrollPane = new JScrollPane(cartdisplay); 
     private String cartitems="";
 
-
-	double discount1 = 0.9;
-	double discount2 = 0.95;
+    //Discount parameters
+	private double discount1 = 0.9;
+	private double discount2 = 0.95;
+	
+	//Clear Button
+	private JButton clear = new JButton("CLEAR");
 	
 	public BookShop() {
 		
@@ -102,7 +105,7 @@ public class BookShop extends JFrame implements ActionListener{
 		panel.setLayout(null);
 		
 		title.setFont(new Font("Tahoma", Font.BOLD, 30));
-		title.setBounds(0, 0, 1200, 70);
+		title.setBounds(0, 0, 1100, 70);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		panel.add(title);
@@ -198,10 +201,15 @@ public class BookShop extends JFrame implements ActionListener{
 		panel.add(addT2C);
 		panel.add(addGE);
 		
+		clear.setBounds(40, 14, 100, 42);
+		clear.setFont(new Font("Tahoma", Font.BOLD, 20));
+	
+		panel.add(clear);
+		
 		cartdisplay.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setBounds(845, 400, 310, 250);
+		scrollPane.setBounds(750, 400, 350, 250);
 	
 		panel.add(scrollPane);
 		
@@ -222,13 +230,14 @@ public class BookShop extends JFrame implements ActionListener{
 		addSM.addActionListener(this);
 		addT2C.addActionListener(this);
 		addGE.addActionListener(this);
+		clear.addActionListener(this);
 				
 		//adding my panel to frame
 		super.add(panel);
 		
 		super.setTitle("Book Store");
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		super.setSize(1200, 700);
+		super.setSize(1150, 700);
 		super.setResizable(false);
 		super.setLocationRelativeTo(null);
 		super.setVisible(true);
@@ -282,6 +291,13 @@ public class BookShop extends JFrame implements ActionListener{
 		
 		if(event.getSource() == addGE) {
 			addBTN(GEbook, shoppingcart);
+		}
+		
+		if(event.getSource() == clear) {
+			shoppingcart.clear();
+			totalLabel.setText("Total :");
+			cartitems="";
+			cartdisplay.setText("Cart Items");
 		}
 		
 	}
