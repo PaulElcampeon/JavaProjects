@@ -109,7 +109,8 @@ public class BookShop extends JFrame implements ActionListener{
 	private BookMaker T2Cbook = new BookMaker("A Tale of Two Cities", 1859, 6.32);
 	private BookMaker GEbook = new BookMaker("Great Expectations", 1861, 13.21);
 	
-	
+	double discount1 = 0.9;
+	double discount2 = 0.95;
 	public BookShop() {
 		
 		/*Going to use absolute positioning although I understand 
@@ -391,11 +392,21 @@ public class BookShop extends JFrame implements ActionListener{
 				shoppingcart.add(book);
 				total = 0;
 				for(BookMaker x : shoppingcart) {
-					total+= x.getPrice();
+					if(x.getYear() > 2000) {
+						total += (x.getPrice() * discount1);
+						}
+					else{
+						total += x.getPrice();
+						}
 					}
-				totalLabel.setText("Total:" +Math.round(total * 100.0) / 100.0);
+				if(total > 30) {
+					total *= 0.95;
+				}
+				totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
 				}
 
+	
+	
 	/*This method checks if the shopping cart is empty, if it is it notifies the 
 	 * user of this however if there are items in the cart it then proceeds to find the 
 	 * specific book you are removing. If this book is not in the cart it will notify the
@@ -411,7 +422,7 @@ public class BookShop extends JFrame implements ActionListener{
 					for(BookMaker y : shoppingcart) {
 						total+= y.getPrice();
 						}
-					totalLabel.setText("Total:" +Math.round(total * 100.0) / 100.0);
+					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
 					}
 					else if(shoppingcart.contains(book) == false){
 						JOptionPane.showMessageDialog(this, book.getName()+" Is not in the shopping cart");
