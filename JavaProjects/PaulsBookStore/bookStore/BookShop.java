@@ -8,6 +8,7 @@ import javax.swing.*;
 
 public class BookShop extends JFrame implements ActionListener{
 
+	private JLabel title = new JLabel("Pauls Book Store");
 	//This variable is going to be used to add the total of the items in the shopping cart
 	private double total = 0;
 	
@@ -47,7 +48,7 @@ public class BookShop extends JFrame implements ActionListener{
 	private int labelheight = 100;
 	
 	//Label coordinates
-	private int row1y = 50;
+	private int row1y = 90;
 	private int row2y = 250;
 	private int row3y = 400;
 	private int column1x = 50;
@@ -60,8 +61,8 @@ public class BookShop extends JFrame implements ActionListener{
 	private int btnHeight = 20;
 	
 	//Button coordinates for adding items
-	private int addbtnRow1y = 150;
-	private int addbtnRow2y = 330;
+	private int addbtnRow1y = 190;
+	private int addbtnRow2y = 370;
 	private int addbtnRow3y = 470;
 	private int addbtnColumn1x = 50;
 	private int addbtnColumn2x = 350;
@@ -99,6 +100,12 @@ public class BookShop extends JFrame implements ActionListener{
 		 * this can cause problems when resizing window thus 
 		 * i have disabled window resizing function*/
 		panel.setLayout(null);
+		
+		title.setFont(new Font("Tahoma", Font.BOLD, 30));
+		title.setBounds(0, 0, 1200, 70);
+		title.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		panel.add(title);
 		
 		MBD.setVerticalAlignment(SwingConstants.TOP);
 		MBD.setHorizontalAlignment(SwingConstants.LEFT);
@@ -194,12 +201,12 @@ public class BookShop extends JFrame implements ActionListener{
 		cartdisplay.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane.setBounds(850, 400, 300, 250);
+		scrollPane.setBounds(845, 400, 310, 250);
 	
 		panel.add(scrollPane);
 		
-		totalLabel.setBounds(0, 580, 500, 100);
-		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		totalLabel.setBounds(0, 580, 833, 85);
+		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		panel.add(totalLabel);
 		
@@ -225,9 +232,7 @@ public class BookShop extends JFrame implements ActionListener{
 		super.setResizable(false);
 		super.setLocationRelativeTo(null);
 		super.setVisible(true);
-		
-		//repaint();
-		
+				
 	}
 	
 		
@@ -315,6 +320,13 @@ public class BookShop extends JFrame implements ActionListener{
 						}
 					cartdisplay.setText(cartitems);
 					}
+				if(total>30) {
+					totalLabel.setText(("Total: £"+Math.round(total * 100.0) / 100.0)+"    You have been awared a 5% discount off your total");
+					}
+				else {
+					totalLabel.setText("Total: £"+Math.round(total * 100.0) / 100.0);
+				}
+
 				}
 				}
 	
