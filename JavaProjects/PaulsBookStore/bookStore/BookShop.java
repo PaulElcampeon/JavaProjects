@@ -417,16 +417,18 @@ public class BookShop extends JFrame implements ActionListener{
 			JOptionPane.showMessageDialog(this, "Your Shopping Cart is Empty");
 		}else if(shoppingcart.isEmpty() == false){
 			if(shoppingcart.contains(book) == true) {
-					shoppingcart.remove(book);
-					total = 0;
-					for(BookMaker y : shoppingcart) {
-						total+= y.getPrice();
-						}
-					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+				shoppingcart.remove(book);
+				if(book.getYear() > 2000) {
+					total -= book.getPrice() * discount1;
 					}
-					else if(shoppingcart.contains(book) == false){
-						JOptionPane.showMessageDialog(this, book.getName()+" Is not in the shopping cart");
-						}
+				else {
+					total -= book.getPrice();
+				}
+				totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+				}
+			else if(shoppingcart.contains(book) == false){
+				JOptionPane.showMessageDialog(this, book.getName()+" Is not in the shopping cart");
+				}
+			}
 		}
 	}
-}
