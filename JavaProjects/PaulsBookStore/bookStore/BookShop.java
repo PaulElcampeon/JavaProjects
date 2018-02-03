@@ -29,7 +29,7 @@ public class BookShop extends JFrame implements ActionListener{
 	private JLabel T2C = new JLabel("<html>A Tale of Two Cities<br>(1859)<br>£6.32</html");
 	private JLabel GE = new JLabel("<html>Great Expectations<br>(1861)<br>£13.21</html");
 	
-	//Add and Remove Buttons for each book
+	//Add Buttons for each book
 	private JButton addMBD = new JButton("Add");
 	private JButton addTTPMS = new JButton("Add");
 	private JButton addSLWW = new JButton("Add");
