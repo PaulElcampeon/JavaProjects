@@ -42,9 +42,6 @@ public class BookShop extends JFrame implements ActionListener{
 	private JButton addT2C = new JButton("Add");
 	private JButton addGE = new JButton("Add");
 	
-	//Button to see shopping cart 
-	private JButton ShopCart = new JButton("Shopping Cart");
-	
 	//Label Dimensions
 	private int labelwidth = 150;
 	private int labelheight = 100;
@@ -73,7 +70,7 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	//Creating book objects for each book
 	
-	ArrayList<BookMaker> shoppingcart = new ArrayList<BookMaker>();
+	private ArrayList<BookMaker> shoppingcart = new ArrayList<BookMaker>();
 	
 	private BookMaker MBDbook = new BookMaker("Moby Dick", 1851, 15.20);
 	private BookMaker TTPMSbook = new BookMaker("The Terrible Privacy of Maxwell Sim", 2010, 13.14);
@@ -87,6 +84,12 @@ public class BookShop extends JFrame implements ActionListener{
 	private BookMaker T2Cbook = new BookMaker("A Tale of Two Cities", 1859, 6.32);
 	private BookMaker GEbook = new BookMaker("Great Expectations", 1861, 13.21);
 	
+	//Cart Display
+    private JTextArea cartdisplay = new JTextArea("Cart Display",20,0);  
+    private JScrollPane scrollPane = new JScrollPane(cartdisplay); 
+    private String cartitems="";
+
+
 	double discount1 = 0.9;
 	double discount2 = 0.95;
 	
@@ -188,10 +191,11 @@ public class BookShop extends JFrame implements ActionListener{
 		panel.add(addT2C);
 		panel.add(addGE);
 		
-		ShopCart.setBounds(910, 420, 200, 100);
-		ShopCart.setFont(new Font("Tahoma", Font.BOLD, 20));
+		cartdisplay.setBounds(850, 400, 300, 250);
+		cartdisplay.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
-		panel.add(ShopCart);
+		panel.add(cartdisplay);
+		panel.add(scrollPane);
 		
 		totalLabel.setBounds(0, 580, 500, 100);
 		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
@@ -210,9 +214,7 @@ public class BookShop extends JFrame implements ActionListener{
 		addSM.addActionListener(this);
 		addT2C.addActionListener(this);
 		addGE.addActionListener(this);
-		
-		ShopCart.addActionListener(this);
-		
+				
 		//adding my panel to frame
 		super.add(panel);
 		
@@ -296,9 +298,20 @@ public class BookShop extends JFrame implements ActionListener{
 				if(total > 30) {
 					total *= 0.95;
 					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+					cartitems="";
+					for(BookMaker y: shoppingcart) {
+						cartitems += y.getName()+":"+y.getPrice()+"\n";
+					}
+					cartdisplay.setText(cartitems);
 				}
 				else{
 					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+					cartitems="";
+					for(BookMaker y: shoppingcart) {
+						cartitems += y.getName()+":"+y.getPrice()+"\n";
+						}
+					cartdisplay.setText(cartitems);
+					}
 				}
 				}
-	}
+	
