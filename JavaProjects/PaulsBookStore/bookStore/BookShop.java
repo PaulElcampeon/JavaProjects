@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
-import java.awt.Color;
-import java.awt.SystemColor;
 
 public class BookShop extends JFrame implements ActionListener{
 
@@ -33,27 +31,16 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	//Add and Remove Buttons for each book
 	private JButton addMBD = new JButton("Add");
-	private JButton removeMBD = new JButton("Remove");
 	private JButton addTTPMS = new JButton("Add");
-	private JButton removeTTPMS = new JButton("Remove");
 	private JButton addSLWW = new JButton("Add");
-	private JButton removeSLWW = new JButton("Remove");
 	private JButton addSM = new JButton("Add");
-	private JButton removeSM = new JButton("Remove");
 	private JButton addTMB = new JButton("Add");
-	private JButton removeTMB = new JButton("Remove");
 	private JButton addTTM = new JButton("Add");
-	private JButton removeTTM = new JButton("Remove");
 	private JButton addTCoS = new JButton("Add");
-	private JButton removeTCoS = new JButton("Remove");
 	private JButton addIToIF = new JButton("Add");
-	private JButton removeIToIF = new JButton("Remove");
 	private JButton addCC = new JButton("Add");
-	private JButton removeCC = new JButton("Remove");
 	private JButton addT2C = new JButton("Add");
-	private JButton removeT2C = new JButton("Remove");
 	private JButton addGE = new JButton("Add");
-	private JButton removeGE = new JButton("Remove");
 	
 	//Button to see shopping cart 
 	private JButton ShopCart = new JButton("Shopping Cart");
@@ -75,7 +62,7 @@ public class BookShop extends JFrame implements ActionListener{
 	private int btnWidth = 90;
 	private int btnHeight = 20;
 	
-	//Button coordinates for add and remove
+	//Button coordinates for adding items
 	private int addbtnRow1y = 150;
 	private int addbtnRow2y = 330;
 	private int addbtnRow3y = 470;
@@ -83,15 +70,6 @@ public class BookShop extends JFrame implements ActionListener{
 	private int addbtnColumn2x = 350;
 	private int addbtnColumn3x = 650;
 	private int addbtnColumn4x = 950;
-	
-	//Button coordinates for remove
-	private int removebtnRow1y = 175;
-	private int removebtnRow2y = 355;
-	private int removebtnRow3y = 495;
-	private int removebtnColumn1x = 50;
-	private int removebtnColumn2x = 350;
-	private int removebtnColumn3x = 650;
-	private int removebtnColumn4x = 950;
 	
 	//Creating book objects for each book
 	
@@ -111,7 +89,6 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	double discount1 = 0.9;
 	double discount2 = 0.95;
-	int discount2counter = 0;
 	
 	public BookShop() {
 		
@@ -211,35 +188,11 @@ public class BookShop extends JFrame implements ActionListener{
 		panel.add(addT2C);
 		panel.add(addGE);
 		
-		removeMBD.setBounds(removebtnColumn1x, removebtnRow1y, btnWidth, btnHeight);
-		removeTTPMS.setBounds(removebtnColumn2x, removebtnRow1y, btnWidth, btnHeight);
-		removeSLWW.setBounds(removebtnColumn3x, removebtnRow1y, btnWidth, btnHeight);
-		removeTMB.setBounds(removebtnColumn4x, removebtnRow1y, btnWidth, btnHeight);
-		removeTTM.setBounds(removebtnColumn1x, removebtnRow2y, btnWidth, btnHeight);
-		removeTCoS.setBounds(removebtnColumn2x, removebtnRow2y, btnWidth, btnHeight);
-		removeIToIF.setBounds(removebtnColumn3x, removebtnRow2y, btnWidth, btnHeight);
-		removeCC.setBounds(removebtnColumn4x, removebtnRow2y, btnWidth, btnHeight);
-		removeSM.setBounds(removebtnColumn1x, removebtnRow3y, btnWidth, btnHeight);
-		removeT2C.setBounds(removebtnColumn2x, removebtnRow3y, btnWidth, btnHeight);
-		removeGE.setBounds(removebtnColumn3x, removebtnRow3y, btnWidth, btnHeight);
-		
-		panel.add(removeMBD);
-		panel.add(removeTTPMS);
-		panel.add(removeSLWW);
-		panel.add(removeTMB);
-		panel.add(removeTTM);
-		panel.add(removeTCoS);
-		panel.add(removeIToIF);
-		panel.add(removeCC);
-		panel.add(removeSM);
-		panel.add(removeT2C);
-		panel.add(removeGE);
-		
 		ShopCart.setBounds(910, 420, 200, 100);
 		ShopCart.setFont(new Font("Tahoma", Font.BOLD, 20));
 		
 		panel.add(ShopCart);
-	
+		
 		totalLabel.setBounds(0, 580, 500, 100);
 		totalLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
@@ -258,18 +211,6 @@ public class BookShop extends JFrame implements ActionListener{
 		addT2C.addActionListener(this);
 		addGE.addActionListener(this);
 		
-		removeMBD.addActionListener(this);
-		removeTTPMS.addActionListener(this);
-		removeSLWW.addActionListener(this);
-		removeTMB.addActionListener(this);
-		removeTTM.addActionListener(this);
-		removeTCoS.addActionListener(this);
-		removeIToIF.addActionListener(this);
-		removeCC.addActionListener(this);
-		removeSM.addActionListener(this);
-		removeT2C.addActionListener(this);
-		removeGE.addActionListener(this);
-		
 		ShopCart.addActionListener(this);
 		
 		//adding my panel to frame
@@ -284,11 +225,7 @@ public class BookShop extends JFrame implements ActionListener{
 		
 	}
 	
-	
-	
-	
-	
-	
+		
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
@@ -297,99 +234,54 @@ public class BookShop extends JFrame implements ActionListener{
 			addBTN(MBDbook, shoppingcart);
 		}
 		
-		if(event.getSource() == removeMBD) {
-			removeBTN(MBDbook, shoppingcart);
-		}
-		
-
 		if(event.getSource() == addTTPMS) {
 			addBTN(TTPMSbook, shoppingcart);
 		}
-		
-		if(event.getSource() == removeTTPMS) {
-			removeBTN(TTPMSbook, shoppingcart);
-		}
-		
 
 		if(event.getSource() == addSLWW) {
 			addBTN(SLWWbook, shoppingcart);
-		}
-		
-		if(event.getSource() == removeSLWW) {
-			removeBTN(SLWWbook, shoppingcart);
 		}
 		
 		if(event.getSource() == addTMB) {
 			addBTN(TMBbook, shoppingcart);
 		}
 		
-		if(event.getSource() == removeTMB) {
-			removeBTN(TMBbook, shoppingcart);
-		}
-		
 		if(event.getSource() == addTTM) {
 			addBTN(TTMbook, shoppingcart);
 		}
-		
-		if(event.getSource() == removeTTM) {
-			removeBTN(TTMbook, shoppingcart);
-		}
-		
+
 		if(event.getSource() == addTCoS) {
 			addBTN(TCoSbook, shoppingcart);
-		}
-		
-		if(event.getSource() == removeTCoS) {
-			removeBTN(TCoSbook, shoppingcart);
 		}
 		
 		if(event.getSource() == addIToIF) {
 			addBTN(IToIFbook, shoppingcart);
 		}
-		
-		if(event.getSource() == removeIToIF) {
-			removeBTN(IToIFbook, shoppingcart);
-		}
-		
+	
 		if(event.getSource() == addCC) {
 			addBTN(CCbook, shoppingcart);
-		}
-		
-		if(event.getSource() == removeCC) {
-			removeBTN(CCbook, shoppingcart);
 		}
 		
 		if(event.getSource() == addSM) {
 			addBTN(SMbook, shoppingcart);
 		}
 		
-		if(event.getSource() == removeSM) {
-			removeBTN(SMbook, shoppingcart);
-		}
-		
 		if(event.getSource() == addT2C) {
 			addBTN(T2Cbook, shoppingcart);
-		}
-		
-		if(event.getSource() == removeT2C) {
-			removeBTN(T2Cbook, shoppingcart);
 		}
 		
 		if(event.getSource() == addGE) {
 			addBTN(GEbook, shoppingcart);
 		}
 		
-		if(event.getSource() == removeGE) {
-			removeBTN(GEbook, shoppingcart);
-		}
 	}
 	
 	
 	
-	
-	
 	/*This method adds a book to the shopping cart resets the total 
-	 * and adds up the prices of the books in the shopping cart*/
+	 * and proceeds to adds up the prices of the books in the shopping cart
+	 * if total is greater than 30 then discount 2 will be applied which is 
+	 * a 5% discount */
 	public void addBTN(BookMaker book, ArrayList<BookMaker> shoppingcart) {
 				shoppingcart.add(book);
 				total = 0;
@@ -403,105 +295,10 @@ public class BookShop extends JFrame implements ActionListener{
 					}
 				if(total > 30) {
 					total *= 0.95;
-					discount2counter++;
+					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
 				}
-				totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+				else{
+					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
 				}
-
-	
-	
-	/*This method checks if the shopping cart is empty, if it is it notifies the 
-	 * user of this however if there are items in the cart it then proceeds to find the 
-	 * specific book you are removing. If this book is not in the cart it will notify the
-	 * user else if the book is in the cart it will remove it from the cart
-	 * reset the total and add up the remaining prices of the books in the cart*/
-	public void removeBTN(BookMaker book, ArrayList<BookMaker> shoppingcart) {
-		
-		if(shoppingcart.isEmpty() == true){
-			JOptionPane.showMessageDialog(this, "Your Shopping Cart is Empty");
-			}
-		else if(shoppingcart.contains(book) == false){
-			JOptionPane.showMessageDialog(this, book.getName()+" is not in your shopping cart");
-			}
-				else if(shoppingcart.contains(book) == true) {
-					if(book.getYear() > 2000) {
-						if(discount2counter > 0) {
-							if((total /= discount2) > 30) {
-								if(((total/=discount2) > 30) && ((total/=discount2 -= book.getPrice() * discount1) < 30)) {
-									total /= discount2;
-									total -= book.getPrice() * discount1;
-									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-									shoppingcart.remove(book);
-									discount2counter--;
-									}
-								else if(((total/=discount2) > 30) && ((total/=discount2 -= book.getPrice() * discount1) > 30)) {
-									total -= book.getPrice() * discount1;
-									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-									shoppingcart.remove(book);
-									}
-							}
-						}
-						else if(discount2counter == 0){
-							total -= book.getPrice() * discount1;
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							shoppingcart.remove(book);
-							}
-						}
-					else if(book.getYear() < 2000) {
-						if(discount2counter > 0) {
-							if((total /= discount2) > 30) {
-								if(((total/= discount2) > 30) && ((total/=discount2 -= book.getPrice()) < 30)) {
-									total /= discount2;
-									total -= book.getPrice();
-									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-									shoppingcart.remove(book);
-									discount2counter--;
-									}
-								else if(((total/=discount2) > 30) && ((total/=discount2 -= book.getPrice()) > 30)) {
-									total -= book.getPrice();
-									totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-									shoppingcart.remove(book);
-									}
-							}
-						}
-						else if(discount2counter == 0){
-							total -= book.getPrice();
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							shoppingcart.remove(book);
-								}
-							}
-						}
 				}
 	}
-
-
-		
-		/*if(shoppingcart.isEmpty() == true) {
-			JOptionPane.showMessageDialog(this, "Your Shopping Cart is Empty");
-		}else if(shoppingcart.isEmpty() == false) {
-			if(shoppingcart.contains(book) == true) {
-				shoppingcart.remove(book);
-				if(book.getYear() > 2000) {
-					if((total > 30) && ((total -= book.getPrice() * discount1) < 30)){
-						total /= discount2; 
-						total -= book.getPrice() * discount1;
-						totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-						}else {
-							total -= book.getPrice() * discount1;
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							}
-					}else {
-						if((total > 30) && ((total -= book.getPrice()) < 30)){
-							total /= discount2;
-							total -= book.getPrice();
-							totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-							}else {
-								total -= book.getPrice();
-								totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
-								}
-						}
-				}
-			else if(shoppingcart.contains(book) == false){
-				JOptionPane.showMessageDialog(this, book.getName()+" Is not in the shopping cart");
-				}
-	*/
