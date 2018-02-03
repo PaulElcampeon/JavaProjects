@@ -5,14 +5,26 @@ public class BookMaker{
 	private String name;
 	private int year;
 	private double price;
+	private String discount;
 	
 	
-	public BookMaker(String name, int year, double price) {
+	public BookMaker(String name, int year, double price, String discount) {
 		
 		this.name = name;
 		this.year = year;
 		this.price = price;
+		this.discount = discount;
 		
+	}
+
+
+	public String getDiscount() {
+		return discount;
+	}
+
+
+	public void setDiscount(String discount) {
+		this.discount = discount;
 	}
 
 

@@ -18,7 +18,7 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	//Label for each book
 	private JLabel MBD = new JLabel("<html>Moby Dick<br>(1851)<br>£15.20</html>");
-	private JLabel TTPMS = new JLabel("<html>The Terrible Privacy of Maxwell Sim<br>(2010)<br>£13.14</html");
+	private JLabel TTPMS = new JLabel("<html>The Terrible Privacy of Maxwell Sim<br>(2010)<br>£13.14<br></html");
 	private JLabel SLWW = new JLabel("<html>Still Life With Woodpecker<br>(1980)<br>£11.05</html");
 	private JLabel SM = new JLabel("<html>Sleeping Murder<br>(1976)<br>£10.24</html");
 	private JLabel TMB = new JLabel("<html>Three Men in a Boat<br>(1889)<br>£12.87</html");
@@ -72,20 +72,20 @@ public class BookShop extends JFrame implements ActionListener{
 	
 	private ArrayList<BookMaker> shoppingcart = new ArrayList<BookMaker>();
 	
-	private BookMaker MBDbook = new BookMaker("Moby Dick", 1851, 15.20);
-	private BookMaker TTPMSbook = new BookMaker("The Terrible Privacy of Maxwell Sim", 2010, 13.14);
-	private BookMaker SLWWbook = new BookMaker("Still Life With Woodpecker", 1980, 11.05);
-	private BookMaker SMbook = new BookMaker("Sleeping Murder", 1976, 10.24);
-	private BookMaker TMBbook = new BookMaker("Three Men in a Boat", 1889, 12.87);
-	private BookMaker TTMbook = new BookMaker("The Time Machine", 1895, 10.43);
-	private BookMaker TCoSbook = new BookMaker("The Caves of Steel", 1954, 8.12);
-	private BookMaker IToIFbook = new BookMaker("Idle Thoughts of an Idle Fellow", 1886, 7.32);
-	private BookMaker CCbook = new BookMaker("A Christmas Carol", 1843, 4.23);
-	private BookMaker T2Cbook = new BookMaker("A Tale of Two Cities", 1859, 6.32);
-	private BookMaker GEbook = new BookMaker("Great Expectations", 1861, 13.21);
+	private BookMaker MBDbook = new BookMaker("Moby Dick", 1851, 15.20,"");
+	private BookMaker TTPMSbook = new BookMaker("The Terrible Privacy of Maxwell Sim", 2010, 13.14,"(10% off)");
+	private BookMaker SLWWbook = new BookMaker("Still Life With Woodpecker", 1980, 11.05,"");
+	private BookMaker SMbook = new BookMaker("Sleeping Murder", 1976, 10.24,"");
+	private BookMaker TMBbook = new BookMaker("Three Men in a Boat", 1889, 12.87,"");
+	private BookMaker TTMbook = new BookMaker("The Time Machine", 1895, 10.43,"");
+	private BookMaker TCoSbook = new BookMaker("The Caves of Steel", 1954, 8.12,"");
+	private BookMaker IToIFbook = new BookMaker("Idle Thoughts of an Idle Fellow", 1886, 7.32,"");
+	private BookMaker CCbook = new BookMaker("A Christmas Carol", 1843, 4.23,"");
+	private BookMaker T2Cbook = new BookMaker("A Tale of Two Cities", 1859, 6.32,"");
+	private BookMaker GEbook = new BookMaker("Great Expectations", 1861, 13.21,"");
 	
 	//Cart Display
-    private JTextArea cartdisplay = new JTextArea("Cart Display",20,0);  
+    private JTextArea cartdisplay = new JTextArea("Cart Display", 20, 0);  
     private JScrollPane scrollPane = new JScrollPane(cartdisplay); 
     private String cartitems="";
 
@@ -191,10 +191,11 @@ public class BookShop extends JFrame implements ActionListener{
 		panel.add(addT2C);
 		panel.add(addGE);
 		
-		cartdisplay.setBounds(850, 400, 300, 250);
-		cartdisplay.setFont(new Font("Tahoma", Font.BOLD, 15));
+		cartdisplay.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		panel.add(cartdisplay);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(850, 400, 300, 250);
+	
 		panel.add(scrollPane);
 		
 		totalLabel.setBounds(0, 580, 500, 100);
@@ -224,6 +225,8 @@ public class BookShop extends JFrame implements ActionListener{
 		super.setResizable(false);
 		super.setLocationRelativeTo(null);
 		super.setVisible(true);
+		
+		//repaint();
 		
 	}
 	
@@ -297,18 +300,18 @@ public class BookShop extends JFrame implements ActionListener{
 					}
 				if(total > 30) {
 					total *= 0.95;
-					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+					totalLabel.setText("Total: £"+Math.round(total * 100.0) / 100.0);
 					cartitems="";
 					for(BookMaker y: shoppingcart) {
-						cartitems += y.getName()+":"+y.getPrice()+"\n";
+						cartitems += y.getName()+":  £"+y.getPrice()+" "+y.getDiscount()+"\n";
 					}
 					cartdisplay.setText(cartitems);
 				}
 				else{
-					totalLabel.setText("Total: "+Math.round(total * 100.0) / 100.0);
+					totalLabel.setText("Total: £"+Math.round(total * 100.0) / 100.0);
 					cartitems="";
 					for(BookMaker y: shoppingcart) {
-						cartitems += y.getName()+":"+y.getPrice()+"\n";
+						cartitems += y.getName()+":  £"+y.getPrice()+" "+y.getDiscount()+"\n";
 						}
 					cartdisplay.setText(cartitems);
 					}
