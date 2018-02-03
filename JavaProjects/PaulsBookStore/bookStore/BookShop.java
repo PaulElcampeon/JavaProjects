@@ -291,12 +291,63 @@ public class BookShop extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 
 		if(event.getSource() == addMBD) {
-			shoppingcart.add(MBDbook);
+			addBTN(MBDbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeMBD) {
+			removeBTN(MBDbook, shoppingcart);
+		}
+		
+
+		if(event.getSource() == addTTPMS) {
+			addBTN(TTPMSbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeTTPMS) {
+			removeBTN(TTPMSbook, shoppingcart);
+		}
+		
+
+		if(event.getSource() == addSLWW) {
+			addBTN(SLWWbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeSLWW) {
+			removeBTN(SLWWbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addTMB) {
+			addBTN(TMBbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeTMB) {
+			removeBTN(TMBbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addTTM) {
+			addBTN(TTMbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeTTM) {
+			removeBTN(TTMbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addTCoS) {
+			addBTN(TCoSbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeTCoS) {
+			removeBTN(TCoSbook, shoppingcart);
 		}
 	}
+	
+	
+	
+	
+	
 	/*This method adds a book to the shopping cart resets the total 
-	 * and then adds up the prices of the books in the shopping cart again*/
-	public void add(BookMaker book, ArrayList<BookMaker> shoppingcart) {
+	 * and adds up the prices of the books in the shopping cart*/
+	public void addBTN(BookMaker book, ArrayList<BookMaker> shoppingcart) {
 				shoppingcart.add(book);
 				total = 0;
 				for(BookMaker x : shoppingcart) {
@@ -305,8 +356,12 @@ public class BookShop extends JFrame implements ActionListener{
 				totalLabel.setText("Total:" +total);
 				}
 
-	/*This method checks if the shopping cart is empty, if it is it noties the user of this*/
-	public void remove(BookMaker book, ArrayList<BookMaker> shoppingcart) {
+	/*This method checks if the shopping cart is empty, if it is it notifies the 
+	 * user of this however if there are items in the cart it then proceeds to find the 
+	 * specific book you are removing. If this book is not in the cart it will notify the
+	 * user else if the book is in the cart it will remove it from the cart
+	 * reset the total and add up the remaining prices of the books in the cart*/
+	public void removeBTN(BookMaker book, ArrayList<BookMaker> shoppingcart) {
 		if(shoppingcart.isEmpty() == true) {
 			JOptionPane.showMessageDialog(this, "Your Shopping Cart is Empty");
 		}else {
