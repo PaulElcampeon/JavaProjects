@@ -339,6 +339,46 @@ public class BookShop extends JFrame implements ActionListener{
 		if(event.getSource() == removeTCoS) {
 			removeBTN(TCoSbook, shoppingcart);
 		}
+		
+		if(event.getSource() == addIToIF) {
+			addBTN(IToIFbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeIToIF) {
+			removeBTN(IToIFbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addCC) {
+			addBTN(CCbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeCC) {
+			removeBTN(CCbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addSM) {
+			addBTN(SMbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeSM) {
+			removeBTN(SMbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addT2C) {
+			addBTN(T2Cbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeT2C) {
+			removeBTN(T2Cbook, shoppingcart);
+		}
+		
+		if(event.getSource() == addGE) {
+			addBTN(GEbook, shoppingcart);
+		}
+		
+		if(event.getSource() == removeGE) {
+			removeBTN(GEbook, shoppingcart);
+		}
 	}
 	
 	
