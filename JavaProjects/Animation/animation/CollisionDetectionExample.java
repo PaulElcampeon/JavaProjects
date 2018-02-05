@@ -7,7 +7,7 @@ package animation;
 	import javax.swing.JFrame;
 	import javax.swing.JPanel;
 
-	public class CollisionDetection extends JPanel implements KeyListener{
+	public class CollisionDetectionExample extends JPanel implements KeyListener{
 
 		
 		private int ballX = 10;
@@ -16,7 +16,7 @@ package animation;
 		private final int frameHeight = 300;
 		private final int borderWidth = 10;
 		
-		public CollisionDetection() {
+		public CollisionDetectionExample() {
 			
 			super.addKeyListener(this);
 			super.setFocusable(true);
@@ -131,7 +131,7 @@ package animation;
 			Thread thread = new Thread(new Runnable() {
 					
 					public void run() {
-				CollisionDetection obj = new CollisionDetection();
+				CollisionDetectionExample obj = new CollisionDetectionExample();
 				JFrame frame = new JFrame();
 				frame.add(obj);
 				frame.setTitle("Game");
