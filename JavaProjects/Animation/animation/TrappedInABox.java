@@ -59,8 +59,10 @@ public class TrappedInABox extends JPanel implements KeyListener, ActionListener
 		
 		if(play == false) {
 			g.setColor(Color.WHITE);
-			g.setFont(new Font("Tahoma",Font.BOLD,26));
-			g.drawString("Press Enter to start the animation", 20, 100);
+			g.setFont(new Font("Tahoma",Font.BOLD,28));
+			g.drawString("Press Enter to start Animation", 30, 100);
+			g.drawString("Press Escape to Quit", 90, 140);
+
 		}
 		
 	}
@@ -125,7 +127,7 @@ public class TrappedInABox extends JPanel implements KeyListener, ActionListener
 					TrappedInABox obj = new TrappedInABox();
 			JFrame frame = new JFrame();
 			frame.add(obj);
-			frame.setTitle("Game");
+			frame.setTitle("Animation Trapped In a Box");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setSize(500, 300);
 			frame.setLocationRelativeTo(null);

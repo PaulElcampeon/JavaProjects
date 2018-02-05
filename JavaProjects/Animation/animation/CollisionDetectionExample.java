@@ -84,6 +84,7 @@ package animation;
 		}
 
 		public void moveLeft() {
+			//Collision detection code
 			if(ballX == 10) {
 				ballX = ballX;
 			}
@@ -93,6 +94,7 @@ package animation;
 		}
 		
 		public void moveRight() {
+			//Collision detection code
 			if(ballX+30 == frameWidth-30) {
 				ballX = ballX;
 			}
@@ -102,6 +104,7 @@ package animation;
 		}
 		
 		public void moveUp() {
+			//Collision detection code
 			if(ballY == 10) {
 				ballY = ballY;
 			}
@@ -111,6 +114,7 @@ package animation;
 		}
 		
 		public void moveDown() {
+			//Collision detection code
 			if(ballY+30 == frameHeight-60) {
 				ballY = ballY;
 			}
@@ -134,7 +138,7 @@ package animation;
 				CollisionDetectionExample obj = new CollisionDetectionExample();
 				JFrame frame = new JFrame();
 				frame.add(obj);
-				frame.setTitle("Game");
+				frame.setTitle("Animation Collision Detection");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setSize(500, 300);
 				frame.setLocationRelativeTo(null);
