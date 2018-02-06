@@ -22,6 +22,7 @@
 	<classpathentry kind="src" path="PaulsBookStoreV2"/>
 	<classpathentry kind="src" path="PongGame"/>
 	<classpathentry kind="src" path="Animation"/>
+	<classpathentry kind="src" path="LogIn Screen"/>
 	<classpathentry kind="lib" path="C:/Users/paulo/Desktop/Java Stuff/mysql-connector-java-5.1.24-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
