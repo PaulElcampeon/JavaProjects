@@ -99,8 +99,7 @@ public class TrappedInABox extends JPanel implements KeyListener, ActionListener
 	
 		if(keyE.getKeyCode() == KeyEvent.VK_ENTER) {	
 			play = true;
-			ballYdir = -ballYdir;
-			ballXdir = -ballXdir;
+		
 		}
 		
 		
